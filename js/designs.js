@@ -13,7 +13,7 @@ let helpCounter = 0;
   	for (let counter = 15; counter <= data.length-4; counter++) {
 
   		if(data[counter] == "\""){
-        
+
   		}
   		else {
 
@@ -34,29 +34,54 @@ let helpCounter = 0;
 
   });
 
-var i = 0;
-var a = 0;
+let i = 0; // i wskazuje miejsce w tabeli TODO
+let a = 0;
+let randomCountry;
+
 $("#startQuiz").click(function() {
   i++;
   console.log("zmienna i = " + i);
-  var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+  randomCountry = countries[Math.floor(Math.random() * countries.length)];
   console.log(randomCountry);
   var div = document.getElementById("chosen");
   var textTop = div.textContent = randomCountry + " : ";
 
-  $("#sendAnswer").click(function() {
-    var div = document.getElementById("chosen"+i);
-    var textTable = div.textContent = randomCountry;
-    var div = document.getElementById("population"+i);
-    var textTabelPopulation = div.textContent = populationSize.value;
 
-    if( textTabelPopulation == 100) {
-      a++;
-    }
-    console.log("zmienna a = " + a);
+  let urlWithRandomCountry = "http://api.population.io:80/1.0/population/2018/" + randomCountry +"/";
+  let myJson = [];
+  let totalPopulation = 0;
 
+$.ajax({
+   url: urlWithRandomCountry,
+   type: 'GET',
+   dataType: 'json'
+ }).done(function(data) {
 
-  });
+   for (var key in data) { // data miejsce jsona
+     myJson[key] = data[key].total;
+   }
+   totalPopulation = myJson.reduce(getSum);
+
+   console.log(urlWithRandomCountry);
+   console.log(totalPopulation);
+});
+
+});
+
+function getSum(total, num) {
+    return total + num;
+}
+
+$("#sendAnswer").click(function() {
+  var div = document.getElementById("chosen"+i);
+  var textTable = div.textContent = randomCountry;
+  var div = document.getElementById("population"+i);
+  var textTabelPopulation = div.textContent = populationSize.value;
+
+  if( textTabelPopulation == 100) {
+    a++;
+  }
+  console.log("zmienna a = " + a);
 
   if(i===6) {
     if(a == 5) {
@@ -78,5 +103,6 @@ $("#startQuiz").click(function() {
       alert("Your score: 0/5 Try again");
     }
   }
+
 
 });
