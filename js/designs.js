@@ -248,55 +248,22 @@
     "Zambia",
     "Zimbabwe"];
 
-    // var div = document.getElementById("randomCountry");
-    // div.textContent = "Wylowsoany Kraj: ";
-    // var text = div.textContent;
-
-// var div = document.getElementById("Wylowsoany");
-// var randomCountry = countries[Math.floor(Math.random() * countries.length)];
-// console.log(randomCountry);
-
-// var div = document.getElementById("chosen");
-// var text1 = div.textContent = "Jakiej wielkości jest popluacja " + randomCountry + " : ";
-//
-// // console.log(countries[0]);
-//
-// function myFunction() {
-//     var population = prompt("Please enter population " + randomCountry + "");
-//     if (population != null) {
-//         document.getElementById("demo").innerHTML =
-//         "Your answer " + randomCountry + " " + population;
-//     }
-// }
-// let i = 0;
-// if (i < 5) {
-//   console.log("okey");
-//   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
-// }
-// else {
-//   console.log("Koniec quiz!")
-// }
-
 var i = 0;
 $("#startQuiz").click(function() {
-  // console.log("switch startQuize");
   i++;
   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
   console.log(randomCountry);
   var div = document.getElementById("chosen");
-  var text1 = div.textContent = randomCountry + " : ";
+  var textTop = div.textContent = randomCountry + " : ";
 
   $("#sendAnswer").click(function() {
     var div = document.getElementById("chosen"+i);
-    var text2 = div.textContent = randomCountry;
+    var textTable = div.textContent = randomCountry;
+    var div = document.getElementById("population"+i);
+    var textTabelPopulation = div.textContent = populationSize.value;
   });
 
   if(i===6) {
     alert("Your score: " );
   }
 });
-
-
-// $( "p" ).click(function() {
-//   $( this ).slideUp();
-// });
