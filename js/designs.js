@@ -1,6 +1,6 @@
-let countries = []; // tablica przechowuje wszytkie kraje
+let countries = []; // Array store all countries
 let countriesCounter = 0;
-let help = [];      // tablica przechowuje pojedyńczy kraj
+let help = [];      // Array store individual country
 let helpCounter = 0;
 
   $.ajax({
@@ -19,10 +19,10 @@ let helpCounter = 0;
 
   			if(data[counter] === ",") {
   				countries[countriesCounter]=help.join("");
-  				countriesCounter++;  // zwiększy licznik kraju
-  				counter = counter+2; // przeskoczenie przecinka i cudzysłów
-  				helpCounter = 0;     // na now wisywanie liter nowego kraju
-  				help = [];           // kolejny kraj
+  				countriesCounter++;  // increase counter countries
+  				counter = counter+2; // skip comma and quotation marks
+  				helpCounter = 0;     // for new letters
+  				help = [];           // clear for next country
   			}
 
   			help[helpCounter] = data[counter];
@@ -57,7 +57,7 @@ $("#startQuiz").click(function() {
     dataType: 'json'
   }).done(function(data) {
 
-   for (var key in data) { // data miejsce jsona
+   for (var key in data) { // data place for jsona
      myJson[key] = data[key].total;
    }
    totalPopulation = myJson.reduce(getSum);
