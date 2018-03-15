@@ -1,6 +1,6 @@
-let countries= []; // tablica przechowuje wszytkie kraje
+let countries = []; // tablica przechowuje wszytkie kraje
 let countriesCounter = 0;
-let help = []; // tablica przechowuje pojedyńczy kraj
+let help = [];      // tablica przechowuje pojedyńczy kraj
 let helpCounter = 0;
 
   $.ajax({
@@ -12,18 +12,19 @@ let helpCounter = 0;
 
   	for (let counter = 15; counter <= data.length-4; counter++) {
 
-  		if(data[counter] == "\""){
+  		if(data[counter] == "\"") {
 
   		}
   		else {
 
-  			if(data[counter] === ","){
+  			if(data[counter] === ",") {
   				countries[countriesCounter]=help.join("");
-  				countriesCounter++; // zwiększy licznik kraju
+  				countriesCounter++;  // zwiększy licznik kraju
   				counter = counter+2; // przeskoczenie przecinka i cudzysłów
-  				helpCounter = 0; // na now wisywanie liter nowego kraju
-  				help = []; // kolejny kraj
+  				helpCounter = 0;     // na now wisywanie liter nowego kraju
+  				help = [];           // kolejny kraj
   			}
+
   			help[helpCounter] = data[counter];
   			helpCounter++;
   		}
@@ -34,29 +35,27 @@ let helpCounter = 0;
 
   });
 
-let i = 0; // i wskazuje miejsce w tabeli TODO
-let a = 0; // TODO
+let tablePosition = 0;
+let tableScore = 0;
 let randomCountry;
-
-
 let myJson = [];
 let totalPopulation = 0;
 
 $("#startQuiz").click(function() {
-  i++;
-  console.log("zmienna i = " + i);
+  tablePosition++;
+  console.log("variable tablePosition = " + tablePosition);
   randomCountry = countries[Math.floor(Math.random() * countries.length)];
   console.log(randomCountry);
   var div = document.getElementById("chosen");
   var textTop = div.textContent = randomCountry + " : ";
 
-let urlWithRandomCountry = "http://api.population.io:80/1.0/population/2018/" + randomCountry +"/";
+  let urlWithRandomCountry = "http://api.population.io:80/1.0/population/2018/" + randomCountry +"/";
 
-$.ajax({
-   url: urlWithRandomCountry,
-   type: 'GET',
-   dataType: 'json'
- }).done(function(data) {
+  $.ajax({
+    url: urlWithRandomCountry,
+    type: 'GET',
+    dataType: 'json'
+  }).done(function(data) {
 
    for (var key in data) { // data miejsce jsona
      myJson[key] = data[key].total;
@@ -65,7 +64,7 @@ $.ajax({
 
    console.log(urlWithRandomCountry);
    console.log(totalPopulation);
-});
+  });
 
 });
 
@@ -74,35 +73,38 @@ function getSum(total, num) {
 }
 
 $("#sendAnswer").click(function() {
-  var div = document.getElementById("chosen"+i);
+  var div = document.getElementById("chosen"+tablePosition);
   var textTable = div.textContent = randomCountry;
-  var div = document.getElementById("population"+i);
+  var div = document.getElementById("population"+tablePosition);
   var textTabelPopulation = div.textContent = populationSize.value;
 
   if(textTabelPopulation <= totalPopulation * 1.25  && textTabelPopulation >= totalPopulation * 0.75 ) {
-    a++;
+    tableScore++;
   }
-  console.log("zmienna a = " + a);
+  console.log("variable  tableScore = " + tableScore);
 
-  if(i==5) {
-    console.log("if dziala");
-    if(a == 5) {
+  if(tablePosition == 5) {
+
+    if(tableScore == 5) {
       alert("Your score: 5/5 You are the best!");
     }
-    else if (a == 4) {
+    else if (tableScore == 4) {
       alert("Your score: 4/5");
     }
-    else if (a == 3) {
+    else if (tableScore == 3) {
       alert("Your score: 3/5");
     }
-    else if (a == 2) {
+    else if (tableScore == 2) {
       alert("Your score: 2/5");
     }
-    else if (a == 1) {
+    else if (tableScore == 1) {
       alert("Your score: 1/5");
     }
     else {
       alert("Your score: 0/5 Try again");
     }
   }
+
+  $("#populationSize").val("");
+
 });
