@@ -268,14 +268,34 @@
 //         "Your answer " + randomCountry + " " + population;
 //     }
 // }
+// let i = 0;
+// if (i < 5) {
+//   console.log("okey");
+//   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+// }
+// else {
+//   console.log("Koniec quiz!")
+// }
 
+var i = 0;
 $("#startQuiz").click(function() {
-  console.log("switch startQuize");
+  // console.log("switch startQuize");
+  i++;
   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
   console.log(randomCountry);
   var div = document.getElementById("chosen");
   var text1 = div.textContent = randomCountry + " : ";
+
+  $("#sendAnswer").click(function() {
+    var div = document.getElementById("chosen"+i);
+    var text2 = div.textContent = randomCountry;
+  });
+
+  if(i===6) {
+    alert("Your score: " );
+  }
 });
+
 
 // $( "p" ).click(function() {
 //   $( this ).slideUp();
