@@ -1,6 +1,6 @@
-  var div = document.getElementById("randomCountry");
-  div.textContent = "Wylowsoany Kraj: ";
-  var text = div.textContent;
+  // var div = document.getElementById("randomCountry");
+  // div.textContent = "Wylowsoany Kraj: ";
+  // var text = div.textContent;
 
  // $.ajax({
  //   url: "http://api.population.io:80/1.0/countries",
@@ -248,17 +248,35 @@
     "Zambia",
     "Zimbabwe"];
 
-var randomCountry = countries[Math.floor(Math.random() * countries.length)];
-console.log(randomCountry);
-var div = document.getElementById("Wylowsoany");
-div.textContent = "Jakiej wielkości jest popluacja " + randomCountry + " : ";
+    // var div = document.getElementById("randomCountry");
+    // div.textContent = "Wylowsoany Kraj: ";
+    // var text = div.textContent;
 
-console.log(countries[0]);
+// var div = document.getElementById("Wylowsoany");
+// var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+// console.log(randomCountry);
 
-function myFunction() {
-    var population = prompt("Please enter population " + randomCountry + "");
-    if (population != null) {
-        document.getElementById("demo").innerHTML =
-        "Your answer " + randomCountry + " " + population;
-    }
-}
+// var div = document.getElementById("chosen");
+// var text1 = div.textContent = "Jakiej wielkości jest popluacja " + randomCountry + " : ";
+//
+// // console.log(countries[0]);
+//
+// function myFunction() {
+//     var population = prompt("Please enter population " + randomCountry + "");
+//     if (population != null) {
+//         document.getElementById("demo").innerHTML =
+//         "Your answer " + randomCountry + " " + population;
+//     }
+// }
+
+$("#startQuiz").click(function() {
+  console.log("switch startQuize");
+  var randomCountry = countries[Math.floor(Math.random() * countries.length)];
+  console.log(randomCountry);
+  var div = document.getElementById("chosen");
+  var text1 = div.textContent = randomCountry + " : ";
+});
+
+// $( "p" ).click(function() {
+//   $( this ).slideUp();
+// });

@@ -10,28 +10,36 @@
   </head>
 
   <body>
-      <h1>Population Quiz</h1>
+    <div class="container">
+      <div class="row">
 
-      <div id="randomCountry"></div>
-      <div id="Wylowsoany"></div>
+        <div class="col-lg-6">
+          <h1 class="text-center">Population Quiz</h1>
+          <!-- <div class="text-center" id="randomCountry"></div> -->
+          <br></br>
+          <button class="btn btn-primary center-block" id="startQuiz">Start Quiz</button>
+          <br></br>
 
-      <div>
-        <input type="text" placeholder="size of population">
+          <h3 class="text-center">Jakiej wielkości jest popluacja
+          <div class="text-center" id="chosen"></div> </h3>
+          <br></br>
+
+          <div>
+            <input class="center-block" type="text" placeholder="size of population">
+          </div>
+          <br></br>
+          <button class="btn btn-success center-block" id="sendAnswer">Send</button>
+
+          <!-- <div id="all_country_api">
+          </div> -->
+          <!-- <button onclick="myFunction()">Try it</button> -->
+          <div id="text1">
+            <p id="demo"></p>
+          </div>
+        </div>
+
       </div>
-
-      
-
-
-      <!-- <div id="all_country_api">
-
-      </div> -->
-
-      <button onclick="myFunction()">Try it</button>
-
-      <div id="text1">
-        <p id="demo"></p>
-
-      </div>
+    </div>
 
       <script src="js/jquery-3.3.1.min.js"></script>
       <script src=js/bootstrap.min.js></script>
