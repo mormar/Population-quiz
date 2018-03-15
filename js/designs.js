@@ -249,8 +249,10 @@
     "Zimbabwe"];
 
 var i = 0;
+var a = 0;
 $("#startQuiz").click(function() {
   i++;
+  console.log("zmienna i = " + i);
   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
   console.log(randomCountry);
   var div = document.getElementById("chosen");
@@ -261,9 +263,34 @@ $("#startQuiz").click(function() {
     var textTable = div.textContent = randomCountry;
     var div = document.getElementById("population"+i);
     var textTabelPopulation = div.textContent = populationSize.value;
+
+    if( textTabelPopulation == 100) {
+      a++;
+    }
+    console.log("zmienna a = " + a);
+
+
   });
 
   if(i===6) {
-    alert("Your score: " );
+    if(a == 5) {
+      alert("Your score: 5/5 You are the best!");
+    }
+    else if (a == 4) {
+      alert("Your score: 4/5");
+    }
+    else if (a == 3) {
+      alert("Your score: 3/5");
+    }
+    else if (a == 2) {
+      alert("Your score: 2/5");
+    }
+    else if (a == 1) {
+      alert("Your score: 1/5");
+    }
+    else {
+      alert("Your score: 0/5 Try again");
+    }
   }
+
 });
