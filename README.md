@@ -13,3 +13,4 @@ https://mormar.github.io/Population-quiz/
 
 ## Sources
 http://api.population.io
+https://www.pexels.com/photo/beige-analog-gauge-697662/
