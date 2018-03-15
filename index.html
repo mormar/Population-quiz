@@ -7,55 +7,50 @@
     <title>Population Quiz</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
   </head>
 
   <body>
     <div class="container">
       <div class="row">
 
-        <div class="col-lg-6">
-          <h1 class="text-center">Population Quiz</h1>
-          <!-- <div class="text-center" id="randomCountry"></div> -->
-          <br></br>
-          <button class="btn btn-primary center-block" id="startQuiz">Start Quiz</button>
-          <br></br>
+        <div>
+          <div id="background">
+            <h1 class="text-center" id="main-title">Population Quiz</h1>
+            <!-- <div class="text-center" id="randomCountry"></div> -->
+            <button class="btn btn-primary center-block" id="startQuiz">Start Quiz</button>
 
-          <h3 class="text-center">How big is the population of 
-          <div class="text-center" id="chosen"></div> </h3>
-          <br></br>
+            <h3 class="text-center" id="question">How big is the population of
+            <div class="text-center" id="chosen"></div> </h3>
 
-          <div>
-            <input class="center-block" type="text" placeholder="size of population" id="populationSize">
+            <div>
+              <input class="center-block" type="text" placeholder="size of population" id="populationSize">
+            </div>
+
+            <button class="btn btn-success center-block" id="sendAnswer">Send</button>
           </div>
-          <br></br>
-          <button class="btn btn-success center-block" id="sendAnswer">Send</button>
 
-          <br></br>
           <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped">
-                <thead>
-                    <tr><th>No.</th><th>Country</th><th>Population</th></tr>
-                </thead>
+            <table class="table table-bordered table-hover table-striped" id="tab">
+              <thead>
+                <tr><th>No.</th><th>Country</th><th>Population</th></tr>
+              </thead>
                 <tbody>
-                    <tr><td>1</td><td id="chosen1"></td><td id="population1"></td></tr>
-                    <tr><td>2</td><td id="chosen2"></td><td id="population2"></td></tr>
-                    <tr><td>3</td><td id="chosen3"></td><td id="population3"></td></tr>
-                    <tr><td>4</td><td id="chosen4"></td><td id="population4"></td></tr>
-                    <tr><td>5</td><td id="chosen5"></td><td id="population5"></td></tr>
+                  <tr><td>1</td><td id="chosen1"></td><td id="population1"></td></tr>
+                  <tr><td>2</td><td id="chosen2"></td><td id="population2"></td></tr>
+                  <tr><td>3</td><td id="chosen3"></td><td id="population3"></td></tr>
+                  <tr><td>4</td><td id="chosen4"></td><td id="population4"></td></tr>
+                  <tr><td>5</td><td id="chosen5"></td><td id="population5"></td></tr>
                 </tbody>
             </table>
-
-        </div>
-
-
+          </div>
           <!-- <div id="all_country_api">
           </div> -->
           <!-- <button onclick="myFunction()">Try it</button> -->
-          <div id="text1">
-            <p id="demo"></p>
-          </div>
+          <!-- <div id="text1"> -->
+            <!-- <p id="demo"></p> -->
+          <!-- </div> -->
         </div>
-
       </div>
     </div>
 
