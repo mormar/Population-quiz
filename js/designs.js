@@ -35,8 +35,12 @@ let helpCounter = 0;
   });
 
 let i = 0; // i wskazuje miejsce w tabeli TODO
-let a = 0;
+let a = 0; // TODO
 let randomCountry;
+
+
+let myJson = [];
+let totalPopulation = 0;
 
 $("#startQuiz").click(function() {
   i++;
@@ -46,10 +50,7 @@ $("#startQuiz").click(function() {
   var div = document.getElementById("chosen");
   var textTop = div.textContent = randomCountry + " : ";
 
-
-  let urlWithRandomCountry = "http://api.population.io:80/1.0/population/2018/" + randomCountry +"/";
-  let myJson = [];
-  let totalPopulation = 0;
+let urlWithRandomCountry = "http://api.population.io:80/1.0/population/2018/" + randomCountry +"/";
 
 $.ajax({
    url: urlWithRandomCountry,
@@ -78,12 +79,13 @@ $("#sendAnswer").click(function() {
   var div = document.getElementById("population"+i);
   var textTabelPopulation = div.textContent = populationSize.value;
 
-  if( textTabelPopulation == 100) {
+  if(textTabelPopulation <= totalPopulation * 1.25  && textTabelPopulation >= totalPopulation * 0.75 ) {
     a++;
   }
   console.log("zmienna a = " + a);
 
-  if(i===6) {
+  if(i==5) {
+    console.log("if dziala");
     if(a == 5) {
       alert("Your score: 5/5 You are the best!");
     }
@@ -103,6 +105,4 @@ $("#sendAnswer").click(function() {
       alert("Your score: 0/5 Try again");
     }
   }
-
-
 });
